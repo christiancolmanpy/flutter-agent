@@ -21,10 +21,11 @@ class InstanaGoRouteObserver {
   }
 
   void _updateScreenName() {
-    final screenName = router.routeInformationProvider.value.location;
+    final screenName = router.routeInformationProvider.value.uri.toString();
     if (screenName.isNotEmpty) {
       final viewMeta = {ScreenAttributes.GO_ROUTER.value: screenName};
-      InstanaViewNameHandler.updateScreenName(screenName: screenName, viewMeta: viewMeta);
+      InstanaViewNameHandler.updateScreenName(
+          screenName: screenName, viewMeta: viewMeta);
     }
   }
 }
